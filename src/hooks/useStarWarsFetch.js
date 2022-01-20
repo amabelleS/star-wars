@@ -49,19 +49,6 @@ export const useStarWarsFetch = () => {
     });
   };
 
-  const findMax = (arr) => {
-    let max = arr.reduce(function (prev, current) {
-      if (+current.sumPopulation > +prev.sumPopulation) {
-        return current;
-      } else {
-        return prev;
-      }
-    });
-    // console.log('🚀 ~ file: PopulationTable.js ~ line 95 ~ findMax ~ max', max);
-
-    return max;
-  };
-
   useEffect(() => {
     fetchStarWarsData();
   }, []);
@@ -70,6 +57,7 @@ export const useStarWarsFetch = () => {
     state,
   };
 };
+
 async function getPopulationByVehicle(vehicle) {
   const pilots = await axios.all(
     vehicle.pilots.map((pilotUrl) => axios.get(pilotUrl))
@@ -81,6 +69,12 @@ async function getPopulationByVehicle(vehicle) {
     })
   );
   return allPlanetsPopulation.reduce((prev, curr) => {
-    return +prev + curr;
+    return prev + curr;
   }, 0);
 }
+
+const findMax = (arr) => {
+  return arr.reduce(function (prev, current) {
+    return prev.sumPopulation > current.sumPopulation ? prev : current;
+  });
+};
