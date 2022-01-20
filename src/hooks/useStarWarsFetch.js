@@ -32,7 +32,12 @@ export const useStarWarsFetch = () => {
           vehicle.sumPopulation = 0;
           return vehicle;
         }
-        vehicle.sumPopulation = await getPopulationByVehicle(vehicle);
+        const { sumPopulation, pilots, planets } = await getPopulationByVehicle(
+          vehicle
+        );
+        vehicle.sumPopulation = sumPopulation;
+        vehicle.fetchedPilots = pilots;
+        vehicle.planets = planets;
         return vehicle;
       })
     );
@@ -62,15 +67,22 @@ async function getPopulationByVehicle(vehicle) {
   const pilots = await axios.all(
     vehicle.pilots.map((pilotUrl) => axios.get(pilotUrl))
   );
-  const allPlanetsPopulation = await Promise.all(
+  const populationsAndPlanets = await Promise.all(
     pilots.map(async (pilot) => {
-      const plant = await axios.get(pilot.data.homeworld);
-      return +plant.data.population;
+      const planet = await axios.get(pilot.data.homeworld);
+      return { allPlanetsPopulation: +planet.data.population, planet };
     })
   );
-  return allPlanetsPopulation.reduce((prev, curr) => {
+  const allPlanetsPopulation = populationsAndPlanets.map(
+    (element) => element.allPlanetsPopulation
+  );
+  const planets = populationsAndPlanets.map((element) => element.planet);
+
+  const sumPopulation = allPlanetsPopulation.reduce((prev, curr) => {
     return prev + curr;
   }, 0);
+
+  return { sumPopulation, pilots, planets };
 }
 
 const findMax = (arr) => {
