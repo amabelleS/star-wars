@@ -1,4 +1,5 @@
 import PopulationTable from './components/population-table/PopulationTable';
+import PlanetsChart from './components/planets-chart/PlanetsChart';
 import Emoji from './components/emoji/Emoji';
 
 import './App.css';
@@ -14,6 +15,7 @@ function App() {
         <Emoji symbol="🚀" label="rocket" />
       </h1>
       <PopulationTable />
+      <PlanetsChart />
     </>
   );
 }

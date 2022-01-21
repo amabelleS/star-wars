@@ -5,11 +5,7 @@ import './PopulationTable.css';
 
 const PopulationTable = () => {
   const { state } = useStarWarsFetch();
-  const { vehicles, max } = state;
-  console.log(
-    '🚀 ~ file: PopulationTable.js ~ line 9 ~ PopulationTable ~ state',
-    state
-  );
+  const { max } = state;
 
   return (
     <>

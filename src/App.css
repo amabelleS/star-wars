@@ -8,7 +8,6 @@
 
 html {
   font-family: 'Roboto', sans-serif;
-  /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
   color: #c8c8c8;
 
   overflow: hidden;
@@ -16,7 +15,6 @@ html {
 
 body {
   margin: 0;
-  /* background: #f8f8ff; */
   background: #1c1e22;
   height: 100%;
 }
