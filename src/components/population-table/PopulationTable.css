@@ -1,0 +1,56 @@
+.max-population-vehicle_table {
+  display: flex;
+  flex-direction: column;
+
+  height: 30vh;
+  width: 96vw;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+
+.table-row {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pad {
+  padding-left: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.row:first-child {
+  border-right: 1px solid #ffffff;
+}
+
+.row p {
+  margin-right: 0.4rem;
+}
+
+.col {
+  display: flex;
+  justify-content: space-evenly;
+
+  flex-grow: 1;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  width: 42%;
+  border: 1px solid #ffffff;
+}
+
+.cell.grow {
+  width: auto;
+  flex-grow: 1;
+}
