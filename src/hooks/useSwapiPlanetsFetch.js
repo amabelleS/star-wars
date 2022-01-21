@@ -32,7 +32,7 @@ export const useSwapiPlanetsFetch = () => {
     const planets = await axios.all(
       URLs.map((planetUrl) => axios.get(planetUrl))
     );
-    const newPlanets = planets.map((planet) => planet.data.results);
+    const newPlanets = planets.map((planet) => planet.data.results[0]);
 
     dispatch({
       type: 'set-planets',
