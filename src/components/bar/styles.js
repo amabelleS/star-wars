@@ -1,12 +1,22 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0px auto;
-  max-width: 500px;
-  height: 500px;
+  /* margin: 0px auto; */
+  /* max-width: 500px; */
+  /* height: 500px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  height: 30vh;
+  width: 92vw;
+  margin: 1rem auto;
+  /* font-size: 1.1rem; */
+  /* font-weight: bold; */
+  /* background: #32383e; */
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
 `;
 
 export const MainContainer = styled.div`

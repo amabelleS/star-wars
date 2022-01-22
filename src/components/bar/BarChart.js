@@ -10,13 +10,15 @@ import {
 } from './styles';
 
 const BarChart = ({ planets }) => {
-  // const log10Y = planets.map((planet) => Math.log10(planet.population));
-  // console.log('🚀 ~ file: barChart.js ~ line 14 ~ BarChart ~ log10Y', log10Y);
-  const min = 10000;
-  const max = 10000000000;
+  // const min = 10000;
+  // const max = 10000000000;
 
   const planetsToChart = planets.map((planet, i) => {
-    const populationLogScale = Math.log10(planet.population);
+    let populationLogScale = Math.log10(planet.population);
+    // if (populationLogScale > 5 && populationLogScale < 6)
+    //   populationLogScale -= 4;
+    // if (populationLogScale > 6 && populationLogScale < 9)
+    //   populationLogScale -= 2;
     return {
       name: planet.name,
       population: planet.population,
