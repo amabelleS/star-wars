@@ -1,6 +1,6 @@
 export const __COLORS__ = [
   {
-    colors: ['#ffd847', '#e0a106'],
+    colors: ['#ffd847', '#B10DC9'],
   },
   {
     colors: ['#ff47ab', '#e0064e'],

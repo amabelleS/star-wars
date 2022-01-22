@@ -10,7 +10,7 @@ html {
   font-family: 'Roboto', sans-serif;
   color: #c8c8c8;
 
-  overflow: hidden;
+  /* overflow: scroll; */
 }
 
 body {
