@@ -70,17 +70,3 @@ export const BlackLine = styled.div`
   height: 5px;
   background-color: grey;
 `;
-
-export const Bar = styled.div`
-  height: ${(props) => props.height}%;
-  background-image: linear-gradient(
-    to bottom,
-    ${(props) => props.colors[0]},
-    ${(props) => props.colors[1]}
-  );
-  ${Chart};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;

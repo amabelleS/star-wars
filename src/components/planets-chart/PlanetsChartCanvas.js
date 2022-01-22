@@ -7,10 +7,6 @@ const PlanetsChart = () => {
   const {
     state: { planets },
   } = useSwapiPlanetsFetch();
-  console.log(
-    '🚀 ~ file: PlanetsChart.js ~ line 8 ~ PlanetsChart ~ planets',
-    planets
-  );
 
   const canvasRef = useRef(null);
 
@@ -19,19 +15,18 @@ const PlanetsChart = () => {
     const context = canvas.getContext('2d');
 
     const width = 42;
-    const hight = 20;
     let currX = 20;
-    let currY = 10;
     planets.forEach((planet) => {
-      const currHight = planet.population;
-      console.log(
-        '🚀 ~ file: PlanetsChart.js ~ line 27 ~ planets.forEach ~ currHight',
-        currHight
-      );
+      let currHight = Math.log10(planet.population) * 10;
+
+      if (currHight > 50 && currHight < 60) currHight -= 20;
       context.fillStyle = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
-      context.fillRect(currX, canvas.height - currY, width, currY);
+      context.fillRect(currX, canvas.height - currHight, width, currHight);
+      context.textBaseline = 'bottom';
+      // context.fillStyle = '#000000';
+      // context.font = 'bold 14px Arial';
+      context.fillText(planet.population, currX, canvas.height / 4);
       currX += width + 10;
-      currY += hight + 10;
     });
   }, [planets]);
 

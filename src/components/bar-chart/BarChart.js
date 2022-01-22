@@ -27,10 +27,6 @@ const BarChart = ({ planets }) => {
       colors: __COLORS__[i],
     };
   });
-  console.log(
-    '🚀 ~ file: barChart.js ~ line 29 ~ planetsToChart ~ planetsToChart',
-    planetsToChart
-  );
 
   return (
     <Container>
@@ -52,8 +48,6 @@ const BarChart = ({ planets }) => {
           })}
       </MainContainer>
       <BlackLine />
-      {/* {planetsToChart.length > 0 &&
-        planetsToChart.map((planet) => <Name>{planet.name}</Name>)} */}
     </Container>
   );
 };

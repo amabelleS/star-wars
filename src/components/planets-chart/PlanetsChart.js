@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSwapiPlanetsFetch } from '../../hooks/useSwapiPlanetsFetch';
-import BarChart from '../bar/BarChart';
+// import BarChart from '../bar-chart';
+import BarChart from '../BarChart';
 
 // import './PlanetsChart.css';
 
