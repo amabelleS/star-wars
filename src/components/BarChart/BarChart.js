@@ -21,10 +21,7 @@ const BarChart = ({ planets }) => {
           planetsToChart.map((planet, i) => {
             return (
               <div key={i} className="bar-chart">
-                <div
-                  className="number"
-                  style={{ color: planet.colors.colors[1] }}
-                >
+                <div className="number" style={{ color: planet.colors[1] }}>
                   {planet.population}
                 </div>
                 <div
@@ -33,12 +30,17 @@ const BarChart = ({ planets }) => {
                     height: planet.populationLogScale * 24,
                     backgroundImage: `linear-gradient(
                         to bottom,
-                        ${planet.colors.colors[0]},
-                        ${planet.colors.colors[1]}
+                        ${planet.colors[0]},
+                        ${planet.colors[1]}
                       )`,
                   }}
                 ></div>
-                <div className="name">{planet.name}</div>
+                <div
+                  className="name"
+                  // style={{ color: planet.colors[0] }}
+                >
+                  {planet.name}
+                </div>
               </div>
             );
           })}
