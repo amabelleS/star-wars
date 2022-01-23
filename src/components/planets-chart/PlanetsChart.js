@@ -11,7 +11,7 @@ const PlanetsChart = () => {
   return (
     <article>
       <h1 className="center header">Planets Chart</h1>
-      <BarChart planets={fetchedPlanets} />
+      {fetchedPlanets.length > 0 ? <BarChart planets={fetchedPlanets} /> : ''}
     </article>
   );
 };

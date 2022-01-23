@@ -15,18 +15,19 @@ export const useSwapiPlanetsFetch = () => {
       `${baseURL}planets/?search=Endor`,
     ];
 
-    const planets = await Promise.allSettled(
-      URLs.map((planetUrl) => axios.get(planetUrl))
-    );
-    // Promise.all:
-    // const newPlanets = planets.map((planet) => planet.data.results[0]);
+    try {
+      const planets = await Promise.allSettled(
+        URLs.map((planetUrl) => axios.get(planetUrl))
+      );
 
-    // Promise.allSettled
-    const newPlanets = planets
-      .filter((p) => p.status === 'fulfilled')
-      .map((planet) => planet.value.data.results[0]);
+      const newPlanets = planets
+        .filter((p) => p.status === 'fulfilled')
+        .map((planet) => planet.value.data.results[0]);
 
-    return newPlanets;
+      return newPlanets;
+    } catch (err) {
+      throw Error(err);
+    }
   };
 
   useEffect(() => {
