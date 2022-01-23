@@ -1,11 +1,11 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Star-Wars API
+# Star-Wars API
 
 This Project uses [SWAPI](https://swapi.py4e.com/) to fetch infirmation about Star-Wars.
 Implementing a bar-chart without any libraries.
+
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
