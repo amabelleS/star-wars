@@ -64,7 +64,7 @@ export const useStarWarsFetch = () => {
 };
 
 async function getPopulationByVehicle(vehicle) {
-  const pilots = await axios.all(
+  const pilots = await Promise.all(
     vehicle.pilots.map((pilotUrl) => axios.get(pilotUrl))
   );
   const populationsAndPlanets = await Promise.all(

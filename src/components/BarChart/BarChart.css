@@ -46,6 +46,10 @@
   /* ${Chart}; */
 }
 
+.bar:hover {
+  opacity: 0.8;
+}
+
 .name {
   font-size: 1.5rem;
   text-align: center;
@@ -53,4 +57,12 @@
   color: #ffe300;
 
   position: absolute;
+}
+
+.base {
+  width: 98%;
+  height: 0.3rem;
+  background-color: #c8c8c8;
+  align-self: center;
+  border-radius: 4px;
 }

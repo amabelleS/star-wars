@@ -3,17 +3,16 @@ import { useSwapiPlanetsFetch } from '../../hooks/useSwapiPlanetsFetch';
 // import BarChart from '../bar-chart';
 import BarChart from '../BarChart';
 
-// import './PlanetsChart.css';
-
 const PlanetsChart = () => {
-  const {
-    state: { planets },
-  } = useSwapiPlanetsFetch();
+  // const {
+  //   state: { planets },
+  // } = useSwapiPlanetsFetch();
+  const fetchedPlanets = useSwapiPlanetsFetch();
 
   return (
     <article>
       <h1 className="center header">Planets Chart</h1>
-      <BarChart planets={planets} />
+      <BarChart planets={fetchedPlanets} />
     </article>
   );
 };

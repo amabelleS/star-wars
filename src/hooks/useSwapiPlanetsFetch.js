@@ -1,20 +1,8 @@
-import { useReducer, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'set-planets':
-      return { ...state, planets: action.payload };
-    default:
-      return state;
-  }
-};
-
 export const useSwapiPlanetsFetch = () => {
-  const initialSate = {
-    planets: [],
-  };
-  const [state, dispatch] = useReducer(reducer, initialSate);
+  const [fetchedPlanets, setFetchedPlanets] = useState([]);
 
   const baseURL = 'https://swapi.py4e.com/api/';
 
@@ -26,25 +14,24 @@ export const useSwapiPlanetsFetch = () => {
       `${baseURL}planets/?search=Bespin`,
       `${baseURL}planets/?search=Endor`,
     ];
-    // const {
-    //   data: { results: planets },
-    // } = await axios.all(URLs.map((planetUrl) => axios.get(planetUrl)));
-    const planets = await axios.all(
+
+    const planets = await Promise.allSettled(
       URLs.map((planetUrl) => axios.get(planetUrl))
     );
-    const newPlanets = planets.map((planet) => planet.data.results[0]);
+    // Promise.all:
+    // const newPlanets = planets.map((planet) => planet.data.results[0]);
 
-    dispatch({
-      type: 'set-planets',
-      payload: newPlanets,
-    });
+    // Promise.allSettled
+    const newPlanets = planets
+      .filter((p) => p.status === 'fulfilled')
+      .map((planet) => planet.value.data.results[0]);
+
+    return newPlanets;
   };
 
   useEffect(() => {
-    fetchStarWarsPlanets();
+    fetchStarWarsPlanets().then((planets) => setFetchedPlanets(planets));
   }, []);
 
-  return {
-    state,
-  };
+  return fetchedPlanets;
 };

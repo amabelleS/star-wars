@@ -6,10 +6,6 @@ import './BarChart.css';
 const BarChart = ({ planets }) => {
   const planetsToChart = planets.map((planet, i) => {
     let populationLogScale = Math.log10(planet.population);
-    if (populationLogScale > 5 && populationLogScale < 6)
-      populationLogScale -= 4;
-    // if (populationLogScale > 6 && populationLogScale < 9)
-    //   populationLogScale -= 2;
     return {
       name: planet.name,
       population: planet.population,
@@ -47,6 +43,7 @@ const BarChart = ({ planets }) => {
             );
           })}
       </div>
+      <div className="base"></div>
     </div>
   );
 };
