@@ -3,9 +3,6 @@ import { useSwapiPlanetsFetch } from '../../hooks/useSwapiPlanetsFetch';
 import BarChart from '../bar-chart';
 
 const PlanetsChart = () => {
-  // const {
-  //   state: { planets },
-  // } = useSwapiPlanetsFetch();
   const fetchedPlanets = useSwapiPlanetsFetch();
 
   return (

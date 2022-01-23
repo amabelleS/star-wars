@@ -12,7 +12,7 @@ const reducer = (state, action) => {
   }
 };
 
-export const useStarWarsFetch = () => {
+export const useSwapiMaxFetch = () => {
   const initialSate = {
     vehicles: [],
     max: 0,
@@ -61,9 +61,7 @@ export const useStarWarsFetch = () => {
     fetchStarWarsData();
   }, []);
 
-  return {
-    state,
-  };
+  return state.max;
 };
 
 async function getPopulationByVehicle(vehicle) {

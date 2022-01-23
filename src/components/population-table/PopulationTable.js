@@ -1,38 +1,37 @@
 import React from 'react';
-import { useStarWarsFetch } from '../../hooks/useStarWarsFetch';
+import { useSwapiMaxFetch } from '../../hooks/useSwapiMaxFetch';
 
 import './PopulationTable.css';
 
 const PopulationTable = () => {
-  const { state } = useStarWarsFetch();
-  const { max } = state;
+  const max = useSwapiMaxFetch();
 
   return (
     <>
       {max && (
         <div className="max-population-vehicle_table">
-          <div className="table-row">
+          <div className="row-space">
             <div className="cell pad">Vehicle name with the largest sum:</div>{' '}
-            <div className="col cell grow">{state.max.name}</div>
+            <div className="row-space cell grow">{max.name}</div>
           </div>
-          <div className="table-row">
+          <div className="row-space">
             <div className="cell pad">
               Related home planets and their respective population:
             </div>
-            <div className="col cell grow">
-              {state.max.planets.map((planet, i) => (
-                <span className="row" key={i}>
+            <div className="row-space cell grow">
+              {max.planets.map((planet, i) => (
+                <span className="row-center" key={i}>
                   <p>{planet.data.name}:</p>
                   <p>{planet.data.population}</p>
                 </span>
               ))}
             </div>
           </div>
-          <div className="table-row">
+          <div className="row-space">
             <div className="cell pad"> Related pilot names:</div>
-            <div className="col cell grow">
-              {state.max.fetchedPilots.map((pilot, i) => (
-                <span key={i} className="row">
+            <div className="row-space cell grow">
+              {max.fetchedPilots.map((pilot, i) => (
+                <span key={i} className="row-center">
                   {pilot.data.name}
                 </span>
               ))}

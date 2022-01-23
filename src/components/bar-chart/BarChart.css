@@ -15,6 +15,7 @@
 
 .container:hover {
   background: #1c1e22;
+  cursor: pointer;
 }
 
 .main {
@@ -61,7 +62,6 @@
 .base {
   width: 98%;
   height: 0.3rem;
-  /* background-color: #c8c8c8; */
   background-color: #ffe300;
   align-self: center;
   border-radius: 4px;

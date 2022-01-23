@@ -35,12 +35,7 @@ const BarChart = ({ planets }) => {
                       )`,
                   }}
                 ></div>
-                <div
-                  className="name"
-                  // style={{ color: planet.colors[0] }}
-                >
-                  {planet.name}
-                </div>
+                <div className="name">{planet.name}</div>
               </div>
             );
           })}

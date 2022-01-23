@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  height: 30vh;
+  height: 28vh;
   width: 92vw;
   margin: 1rem auto;
   font-size: 1.1rem;
@@ -15,37 +15,11 @@
 
 .max-population-vehicle_table:hover {
   background: #1c1e22;
-}
-
-.table-row {
-  flex-grow: 1;
-  display: flex;
-  justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .pad {
   padding-left: 1rem;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-}
-.row:first-child {
-  border-right: 1px solid #555bff;
-  /* border-right: 1px solid #ffffff; */
-}
-
-.row p {
-  margin-right: 0.4rem;
-}
-
-.col {
-  display: flex;
-  justify-content: space-evenly;
-
-  flex-grow: 1;
 }
 
 .cell {
@@ -57,5 +31,22 @@
 
 .cell.grow {
   width: auto;
+  flex-grow: 1;
+}
+
+.row-center {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.row-center:first-child {
+  border-right: 1px solid #555bff;
+}
+
+.row-space {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
   flex-grow: 1;
 }
